@@ -9,7 +9,11 @@ use Validator;
 use App\Http\Resources\Product as ProductResource;
    
 class ProductController extends BaseController
-{
+{ 
+    public function __construct()
+    {
+        $this->middleware('auth:api')->except('index','show');
+    }
     /**
      * Display a listing of the resource.
      *
